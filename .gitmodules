@@ -1,0 +1,4 @@
+[submodule "vendor/debian-bdfresize"]
+	path = vendor/debian-bdfresize
+	url = https://github.com/ystk/debian-bdfresize.git
+	branch = master
