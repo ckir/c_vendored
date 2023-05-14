@@ -1,0 +1,136 @@
+#!/usr/bin/env lua
+
+local argparse = require "argparse"
+
+local parser = argparse "ansifilter"
+   :add_help(false)
+
+parser:argument "file"
+   :args "*"
+
+parser:option "-i --input"
+   :description "Name of input file"
+
+parser:option "-o --output"
+   :description "Name of output file"
+
+parser:option "-O --outdir"
+   :description "Name of output directory"
+
+parser:option "-x --max-size"
+   :description "Set maximum input file size (default: 256M)"
+
+parser:flag "-t --tail"
+   :description "Continue reading after end-of-file (like tail -f)"
+
+parser:flag "-T --text"
+   :description "Output text"
+
+parser:flag "-H --html"
+   :description "Output HTML"
+
+parser:flag "-M --pango"
+   :description "Output Pango Markup"
+
+parser:flag "-L --latex"
+   :description "Output LaTeX"
+
+parser:flag "-P --tex"
+   :description "Output Plain TeX"
+
+parser:flag "-R --rtf"
+   :description "Output RTF"
+
+parser:flag "-S --svg"
+   :description "Output SVG"
+
+parser:flag "-B --bbcode"
+   :description "Output BBCODE"
+
+parser:option "-a --anchors"
+   :description "Add HTML line anchors (opt: self referencing, assumes -l)"
+   :args "?"
+   :choices {"self"}
+
+parser:option "-d --doc-title"
+   :description "Set HTML/LaTeX/SVG document title"
+
+parser:option "-e --encoding"
+   :description "Set HTML/RTF encoding or omit if NONE"
+
+parser:flag "-f --fragment"
+   :description "Omit HTML header and footer"
+
+parser:option "-F --font"
+   :description "Set HTML/RTF/SVG font face"
+
+parser:option "-k --ignore-clear"
+   :description "Do not adhere to clear (ESC K) commands (default: true"
+   :choices {"0", "1"}
+
+parser:flag "-c --ignore-csi"
+   :description "Do not adhere to CSI commands"
+
+parser:flag "-l --line-numbers"
+   :description "Print line numbers in output file"
+
+parser:option "-m --map"
+   :description "Read color mapping file"
+
+parser:option "-r --style-ref"
+   :description "Set HTML/TeX/LaTeX/SVG stylesheet path"
+
+parser:option "-s --font-size"
+   :description "Set HTML/RTF/SVG font size"
+
+parser:flag "-p --plain"
+   :description "Ignore ANSI formatting information"
+
+parser:option "-w --wrap"
+   :description "Wrap long lines"
+
+parser:flag "--no-trailing-nl"
+   :description "Omit trailing newline"
+parser:flag "--no-version-info"
+   :description "Omit version info comment"
+parser:flag "--wrap-no-numbers"
+   :description "Omit line numbers of wrapped lines"
+parser:flag "--derived-styles"
+   :description "Output dynamic stylesheets (HTML/SVG)"
+
+parser:flag "--art-cp437"
+   :description "Parse codepage 437 ANSI art"
+parser:flag "--art-bin"
+   :description "Parse BIN/XBIN ANSI art"
+parser:flag "--art-tundra"
+   :description "Parse Tundra ANSI art"
+parser:option "--art-width"
+   :description "Set ANSI art width"
+parser:option "--art-height"
+   :description "Set ANSI art height"
+
+parser:option "--height"
+   :description "set SVG image height"
+
+parser:option "--width"
+   :description "set SVG image width"
+
+parser:flag "-v --version"
+   :description "Print version and license info"
+
+parser:flag "-h --help"
+   :description "Print help"
+
+local p = argparse "gen-completions"
+p:argument "shell"
+   :choices {"bash", "zsh", "fish"}
+
+local shell = p:parse().shell
+
+if shell == "bash" then
+   io.write(parser:get_bash_complete())
+elseif shell == "zsh" then
+   io.write(parser:get_zsh_complete())
+else
+   io.write(parser:get_fish_complete())
+end
