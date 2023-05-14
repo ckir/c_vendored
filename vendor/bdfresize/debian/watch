@@ -1,0 +1,4 @@
+version=3
+
+opts="uversionmangle=s/pre/~pre/" \
+http://openlab.ring.gr.jp/efont/dist/tools/bdfresize/bdfresize-([\w.]+)\.tar\.gz

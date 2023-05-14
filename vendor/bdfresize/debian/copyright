@@ -1,0 +1,37 @@
+This package was debianized by
+  2000-2002 Takuo KITAME <kitame@northeye.org>
+  2008 Tatsuya Kinoshita <tats@debian.org>
+
+The upstream source can be downloaded from
+  http://openlab.jp/efont/dist/tools/bdfresize/
+
+Upstream maintainer: Electronic Font Open Laboratory
+  http://openlab.jp/efont/
+
+Copyright (C) 1988, 1992 Hiroto Kagotani
+Copyright 2000 Kazuhiko
+Copyright 2000 Masao Uebayashi
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+On Debian systems, the complete text of the GNU General Public License
+version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+The Debian packaging is distributed under the same conditions as the
+upstream.
+
+Other copyright holders:
+
+getopt.c:   Copyright (C) 1987, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98
+getopt.c:   	Free Software Foundation, Inc.
+getopt.h:   Copyright (C) 1989,90,91,92,93,94,96,97 Free Software Foundation, Inc.
+memset.c: * Copyright (c) 1997, 98, 2000  Motoyuki Kasahara
+missing:# Copyright (C) 1996, 1997 Free Software Foundation, Inc.
